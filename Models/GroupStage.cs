@@ -2,7 +2,7 @@
 {
     public class GroupStage
     {
-        public int groupStageID { get; set; }
+        public int groupStageId { get; set; }
         public string home { get; set; }
         public string away { get; set; }
     }
