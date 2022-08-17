@@ -26,8 +26,8 @@ namespace WorldCup2022_MVC.Controllers
 
         public IActionResult Index(ITeamService TeamService)
         {
-            //List = _TeamService.GetAllEntries();
-            List = (List<TeamVM>)_TeamRespository.GetAllEntries();
+            List = _TeamService.GetAllEntries();
+            //List = (List<TeamVM>)_TeamRespository.GetAllEntries();
             return View(List);
         }
 
