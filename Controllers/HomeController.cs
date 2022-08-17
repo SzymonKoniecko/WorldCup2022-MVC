@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WorldCup2022_MVC.Interfaces;
 using WorldCup2022_MVC.Models;
 using WorldCup2022_MVC.ViewModels;
 
@@ -8,15 +9,26 @@ namespace WorldCup2022_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private List<TeamVM> teams;
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ITeamService _TeamService;
+        public List<TeamVM> List;
 
-        public IActionResult Index()
+        private ITeamRespository _TeamRespository;
+        public HomeController(ILogger<HomeController> logger, ITeamService TeamService, ITeamRespository teamRespository)
         {
-            return View(teams.ToList());
+            _TeamService = TeamService;
+            _logger = logger;
+            _TeamRespository = teamRespository;
+        }
+        //public ITeamService Get_TeamService()
+        //{
+        //    return _TeamService;
+        //}
+
+        public IActionResult Index(ITeamService TeamService)
+        {
+            //List = _TeamService.GetAllEntries();
+            List = (List<TeamVM>)_TeamRespository.GetAllEntries();
+            return View(List);
         }
 
         public IActionResult Privacy()

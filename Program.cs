@@ -1,6 +1,12 @@
 using WorldCup2022_MVC.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WorldCup2022_MVC.Respository;
+using WorldCup2022_MVC.Interfaces;
+using WorldCup2022_MVC.Services;
+using WorldCup2022_MVC.Contexts;
+using WorldCup2022_MVC.Models;
+using WorldCup2022_MVC.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +20,8 @@ builder.Services.AddDbContext<GroupStageContext>(options =>
 builder.Services.AddDbContext<TeamContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddTransient<ITeamRespository, TeamRespository>();
+builder.Services.AddTransient<ITeamService, TeamService>();
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
