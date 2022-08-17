@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WorldCup2022_MVC.Models;
+using WorldCup2022_MVC.ViewModels;
 
 namespace WorldCup2022_MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private List<TeamVM> teams;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,7 +16,7 @@ namespace WorldCup2022_MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(teams.ToList());
         }
 
         public IActionResult Privacy()
