@@ -1,10 +1,20 @@
 using WorldCup2022_MVC.Contexts;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var connectionString = builder.Configuration.GetConnectionString("WorldCup2022");
+builder.Services.AddDbContext<GroupContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<GroupStageContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<TeamContext>(options =>
+    options.UseSqlServer(connectionString));
 
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

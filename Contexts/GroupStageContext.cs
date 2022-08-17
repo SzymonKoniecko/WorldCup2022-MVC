@@ -5,7 +5,10 @@ namespace WorldCup2022_MVC.Contexts
 {
     public class GroupStageContext : DbContext
     {
-        public GroupStageContext(DbContextOptions options) : base(options) { }
+        public GroupStageContext(DbContextOptions<GroupStageContext> options)
+            : base(options)
+        {
+        }
         public DbSet<GroupStage> GroupStage { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
