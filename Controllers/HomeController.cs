@@ -10,7 +10,7 @@ namespace WorldCup2022_MVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITeamService _TeamService;
-        public List<TeamVM> List;
+        public List<TeamVM> ListOfTeams;
 
         private ITeamRespository _TeamRespository;
         public HomeController(ILogger<HomeController> logger, ITeamService TeamService, ITeamRespository teamRespository)
@@ -19,16 +19,12 @@ namespace WorldCup2022_MVC.Controllers
             _logger = logger;
             _TeamRespository = teamRespository;
         }
-        //public ITeamService Get_TeamService()
-        //{
-        //    return _TeamService;
-        //}
 
-        public IActionResult Index(ITeamService TeamService)
+        public IActionResult Index([FromServices]ITeamService TeamService)
         {
-            List = _TeamService.GetAllEntries();
-            //List = (List<TeamVM>)_TeamRespository.GetAllEntries();
-            return View(List);
+            ListOfTeams = _TeamService.GetAllEntries();
+            ListOfTeams.OrderByDescending(list => list.teamId);
+            return View(ListOfTeams);
         }
 
         public IActionResult Privacy()

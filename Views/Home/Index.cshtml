@@ -1,7 +1,32 @@
-﻿@{
+﻿@using WorldCup2022_MVC.ViewModels
+@model IEnumerable<TeamVM>;
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-   
+@if (@Model == null)
+    {
+        <div class="alert alert-danger">No available groups found</div>
+    }
+    else
+    {
+        <table title="Group A">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'A')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+    }
 </div>
