@@ -3,12 +3,46 @@
 @model TeamsMatchesVM
 @{
     ViewData["Title"] = "Play Group";
+    int i = 0;
 }
-<h1>@ViewData["Title"]</h1>
+<h1 align= "center">@ViewData["Title"]</h1>
 
     @foreach(var match in @Model.listOfMatches){
+        
+            @if (i == 0)
+            {
+                <h1 align= "center">Group A</h1>
+            }
+            else if (i == 7)
+            {
+                <h1 align= "center">Group B</h1>
+            }
+            else if (i == 13)
+            {
+                <h1 align= "center">Group C</h1>
+            }
+            else if (i == 19)
+            {
+                <h1 align= "center">Group D</h1>
+            }
+            else if (i == 25)
+            {
+                <h1 align= "center">Group E</h1>
+            }
+            else if (i == 31)
+            {
+                <h1 align= "center">Group F</h1>
+            }
+            else if (i == 37)
+            {
+                <h1 align= "center">Group G</h1>
+            }
+            else if (i == 43)
+            {
+                <h1 align= "center">Group H</h1>
+            }
         <h3>
-            @foreach (var team in @Model.listOfTeams)
+        @foreach (var team in @Model.listOfTeams)
             {
                 @if (@team.placeInGroup == @match.home)
                 {
@@ -21,6 +55,9 @@
                 {
                     @team.name
                 }   
+            }
+            @{
+                i++;
             }
         </h3>
     }
