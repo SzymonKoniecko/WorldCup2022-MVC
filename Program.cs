@@ -39,7 +39,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.MapControllerRoute(name: "PlayGroup",
+                pattern: "PlayGroup",
+                defaults: new { controller = "PlayGroup", action = "RedirectToPlay" });
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

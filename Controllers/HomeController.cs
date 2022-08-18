@@ -31,6 +31,12 @@ namespace WorldCup2022_MVC.Controllers
         {
             return View();
         }
+        public IActionResult RedirectToPlay()
+        {
+            //return RedirectToAction("PlayGroup.cshtml", "PlayGroup");
+            //return new RedirectResult("PlayGroup.cshtml", permanent: true, preserveMethod: true);
+            return Redirect("~/PlayGroup/PlayGroup");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
