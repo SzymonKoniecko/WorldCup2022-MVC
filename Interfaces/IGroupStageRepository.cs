@@ -2,7 +2,7 @@
 
 namespace WorldCup2022_MVC.Interfaces
 {
-    public interface IGroupStageRespository
+    public interface IGroupStageRepository
     {
         public IQueryable<GroupStage> GetAllMatches();
     }

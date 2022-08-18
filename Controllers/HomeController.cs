@@ -12,8 +12,8 @@ namespace WorldCup2022_MVC.Controllers
         private readonly ITeamService _TeamService;
         public List<TeamVM> ListOfTeams;
 
-        private ITeamRespository _TeamRespository;
-        public HomeController(ILogger<HomeController> logger, ITeamService TeamService, ITeamRespository teamRespository)
+        private ITeamRepository _TeamRespository;
+        public HomeController(ILogger<HomeController> logger, ITeamService TeamService, ITeamRepository teamRespository)
         {
             _TeamService = TeamService;
             _logger = logger;

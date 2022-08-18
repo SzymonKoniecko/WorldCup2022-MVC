@@ -7,8 +7,8 @@ namespace WorldCup2022_MVC.Services
 {
     public class TeamService : ITeamService
     {
-        private readonly ITeamRespository _TeamRepository;
-        public TeamService(ITeamRespository teamRepository)
+        private readonly ITeamRepository _TeamRepository;
+        public TeamService(ITeamRepository teamRepository)
         {
             _TeamRepository = teamRepository;
         }

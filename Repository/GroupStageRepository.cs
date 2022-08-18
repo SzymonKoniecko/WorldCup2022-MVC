@@ -5,11 +5,11 @@ using WorldCup2022_MVC.ViewModels;
 
 namespace WorldCup2022_MVC.Respository
 {
-    public class GroupStageRespository : IGroupStageRespository
+    public class GroupStageRepository : IGroupStageRepository
     {
         private readonly GroupStageContext _context;
 
-        public GroupStageRespository(GroupStageContext context)
+        public GroupStageRepository(GroupStageContext context)
         {
             _context = context;
         }

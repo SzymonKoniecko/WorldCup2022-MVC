@@ -20,9 +20,9 @@ builder.Services.AddDbContext<GroupStageContext>(options =>
 builder.Services.AddDbContext<TeamContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddTransient<ITeamRespository, TeamRespository>();
+builder.Services.AddTransient<ITeamRepository, TeamRepository>();
 builder.Services.AddTransient<ITeamService, TeamService>();
-builder.Services.AddTransient<IGroupStageRespository, GroupStageRespository>();
+builder.Services.AddTransient<IGroupStageRepository, GroupStageRepository>();
 builder.Services.AddTransient<IGroupStageService, GroupStageService>();
 builder.Services.AddControllersWithViews();
 var app = builder.Build();

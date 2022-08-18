@@ -4,11 +4,11 @@ using WorldCup2022_MVC.Models;
 
 namespace WorldCup2022_MVC.Respository
 {
-    public class TeamRespository : ITeamRespository
+    public class TeamRepository : ITeamRepository
     {
         private readonly TeamContext _context;
 
-        public TeamRespository(TeamContext context)
+        public TeamRepository(TeamContext context)
         {
             _context = context;
         }
