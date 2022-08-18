@@ -7,9 +7,9 @@ namespace WorldCup2022_MVC.Services
 {
     public class GroupStageService : IGroupStageService
     {
-        private readonly GroupStageRespository _respository;
+        private readonly IGroupStageRespository _respository;
 
-        public GroupStageService(GroupStageRespository respository)
+        public GroupStageService(IGroupStageRespository respository)
         {
             _respository = respository;
         }

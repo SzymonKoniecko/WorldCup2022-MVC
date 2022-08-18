@@ -22,6 +22,8 @@ builder.Services.AddDbContext<TeamContext>(options =>
 
 builder.Services.AddTransient<ITeamRespository, TeamRespository>();
 builder.Services.AddTransient<ITeamService, TeamService>();
+builder.Services.AddTransient<IGroupStageRespository, GroupStageRespository>();
+builder.Services.AddTransient<IGroupStageService, GroupStageService>();
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
@@ -39,7 +41,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-app.MapControllerRoute(name: "PlayGroup",
+app.MapControllerRoute(
+                name: "PlayGroup",
                 pattern: "PlayGroup",
                 defaults: new { controller = "PlayGroup", action = "RedirectToPlay" });
 app.MapControllerRoute(

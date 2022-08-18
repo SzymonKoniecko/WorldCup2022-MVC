@@ -1,23 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorldCup2022_MVC.Interfaces;
+using WorldCup2022_MVC.ViewModels;
 
 namespace WorldCup2022_MVC.Controllers
 {
     public class PlayGroupController : Controller
     {
-        private readonly IGroupStageService _groupStageservice;
+        //private readonly IGroupStageService _groupStageservice;
         private readonly ITeamService _teamservice;
-        public PlayGroupController(IGroupStageService groupStageservice, ITeamService teamservice)
+        private readonly IGroupStageService _groupstageservice;
+        public PlayGroupController(ITeamService teamservice, IGroupStageService groupstageservice)
         {
-            _groupStageservice = groupStageservice;
             _teamservice = teamservice;
+            _groupstageservice = groupstageservice;
         }
 
         // GET: PlayGroupController
-        public ActionResult PlayGroup()
+        public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice)
         {
-            return View();
+            var alldata = new TeamsMatchesVM
+            {
+                listOfTeams = _teamservice.GetAllEntries(),
+                listOfMatches = _groupstageservice.GetAllMatches()
+            };
+            return View(alldata);
         }
 
         // GET: PlayGroupController/Details/5

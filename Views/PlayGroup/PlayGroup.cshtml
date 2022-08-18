@@ -1,4 +1,27 @@
-﻿@{
+﻿@using WorldCup2022_MVC.ViewModels
+@using System.Linq;
+@model TeamsMatchesVM
+@{
     ViewData["Title"] = "Play Group";
 }
 <h1>@ViewData["Title"]</h1>
+
+    @foreach(var match in @Model.listOfMatches){
+        <h3>
+            @foreach (var team in @Model.listOfTeams)
+            {
+                @if (@team.placeInGroup == @match.home)
+                {
+                    @team.name
+                }   
+            }
+            vs @foreach (var team in @Model.listOfTeams)
+            {
+                @if (@team.placeInGroup == @match.away)
+                {
+                    @team.name
+                }   
+            }
+        </h3>
+    }
+
