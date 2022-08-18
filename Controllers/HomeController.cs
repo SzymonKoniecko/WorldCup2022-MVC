@@ -23,7 +23,7 @@ namespace WorldCup2022_MVC.Controllers
         public IActionResult Index([FromServices]ITeamService TeamService)
         {
             ListOfTeams = _TeamService.GetAllEntries();
-            ListOfTeams.OrderByDescending(list => list.teamId);
+            ListOfTeams.OrderBy(list => list.placeInGroup);
             return View(ListOfTeams);
         }
 
