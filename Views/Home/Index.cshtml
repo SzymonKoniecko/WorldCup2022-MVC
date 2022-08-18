@@ -1,8 +1,159 @@
-﻿@{
+﻿@using WorldCup2022_MVC.ViewModels
+@model IEnumerable<TeamVM>;
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@if (@Model == null)
+    {
+        <div class="alert alert-danger">No available groups found</div>
+    }
+    else
+    {
+        <h3>Group A</h3>
+        <table title="Group A">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'A')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table> 
+        <h3>Group B</h3>
+        <table title="Group B">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'B')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+        <h3>Group C</h3>
+        <table title="Group C">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'C')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+        <h3>Group D</h3>
+        <table title="Group D">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'D')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+        <h3>Group E</h3>
+        <table title="Group E">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'E')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+        <h3>Group F</h3>
+        <table title="Group F">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'F')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+        <h3>Group G</h3>
+        <table title="Group G">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'G')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+        <h3>Group H</h3>
+        <table title="Group H">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.placeInGroup)</th>
+            </tr>
+            @foreach( var list in @Model)
+            {   
+                @if (list.placeInGroup[0] == 'H')
+                {
+                    <tr>
+                        <td>@list.name</td>
+                        <td>@list.placeInGroup</td>
+                    </tr>
+                }
+                
+            }
+        </table>   
+    }
 </div>

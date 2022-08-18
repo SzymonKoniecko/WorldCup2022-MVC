@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using WorldCup2022_MVC.Models;
 
-namespace WorldCup2022_MVC.Models
+namespace WorldCup2022_MVC.ViewModels
 {
-    public class Team
+    public class TeamVM
     {
         public int teamId { get; set; }
         [Display(Name = "Country")]
