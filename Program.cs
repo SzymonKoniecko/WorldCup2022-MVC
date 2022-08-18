@@ -6,7 +6,6 @@ using WorldCup2022_MVC.Interfaces;
 using WorldCup2022_MVC.Services;
 using WorldCup2022_MVC.Contexts;
 using WorldCup2022_MVC.Models;
-using WorldCup2022_MVC.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 

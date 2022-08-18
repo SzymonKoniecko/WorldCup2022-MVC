@@ -1,6 +1,7 @@
 ﻿using WorldCup2022_MVC.Contexts;
 using WorldCup2022_MVC.Interfaces;
 using WorldCup2022_MVC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WorldCup2022_MVC.Respository
 {
@@ -11,6 +12,26 @@ namespace WorldCup2022_MVC.Respository
         public TeamRepository(TeamContext context)
         {
             _context = context;
+        }
+        public bool Add(Team team)
+        {
+            _context.Add(team);
+            try
+            {
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw new NotSupportedException
+                {
+
+                };
+            }
+        }
+        public async Task<Team> GetByIdAsync(int id)
+        {
+            return await _context.Team.Include(t => t.teamId).FirstOrDefaultAsync(f => f.teamId == id);
         }
         public IQueryable<Team> GetAllEntries()
         {
