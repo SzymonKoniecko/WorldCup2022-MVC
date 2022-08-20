@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Play Group";
     int i = 0;
+    int j = 0;
 }
 <h1 align= "center">@ViewData["Title"]</h1>
 
@@ -47,14 +48,34 @@
                 @if (@team.placeInGroup == @match.home)
                 {
                     @team.name
+                    foreach (var result in @Model.listOfResult)
+                    {
+                        @if (i == j)
+                            j++;
+                        else
+                        {
+                            @result.homeGoals
+                        }
+                    }
                 }   
+                j = 0;
             }
             vs @foreach (var team in @Model.listOfTeams)
             {
                 @if (@team.placeInGroup == @match.away)
                 {
                     @team.name
+                    foreach (var result in @Model.listOfResult)
+                    {
+                        @if (i != j)
+                            j++;
+                        else
+                        {
+                            @result.awayGoals
+                        }
+                    }
                 }   
+                j = 0;
             }
             @{
                 i++;
