@@ -21,16 +21,16 @@ namespace WorldCup2022_MVC.Controllers
         public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice)
         {
             //HttpContext.Session.SetSession("Matches", Play());
-            var result = new List<MatchVM>();
+            MatchVM[] result = new MatchVM[49];
             for (int i = 0; i < 49; i++)
             {
-                result.Add(Play());
+                result[i] = Play();
             }
             var alldata = new TeamsMatchesVM
             {
                 listOfTeams = _teamservice.GetAllEntries(),
                 listOfMatches = _groupstageservice.GetAllMatches(),
-                listOfResult = result
+                arrayOfResult = result
             };
             return View(alldata);
         }
@@ -38,8 +38,8 @@ namespace WorldCup2022_MVC.Controllers
         public MatchVM Play()
         {
             Random random = new Random();
-            int hOppor = random.Next(0, 20);
-            int aOppor = random.Next(0, 20);
+            int hOppor = random.Next(0, 10);
+            int aOppor = random.Next(0, 10);
             float hEff = (float)(random.Next(0, 100) * 0.01);
             float aEff = (float)(random.Next(0, 100) * 0.01);
 
