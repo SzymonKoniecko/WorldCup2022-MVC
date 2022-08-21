@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Play Group";
     int i = 0;
+    int j = 0;
 }
 <h1 align= "center">@ViewData["Title"]</h1>
 
@@ -13,31 +14,31 @@
             {
                 <h1 align= "center">Group A</h1>
             }
-            else if (i == 7)
+            else if (i == 6)
             {
                 <h1 align= "center">Group B</h1>
             }
-            else if (i == 13)
+            else if (i == 12)
             {
                 <h1 align= "center">Group C</h1>
             }
-            else if (i == 19)
+            else if (i == 18)
             {
                 <h1 align= "center">Group D</h1>
             }
-            else if (i == 25)
+            else if (i == 24)
             {
                 <h1 align= "center">Group E</h1>
             }
-            else if (i == 31)
+            else if (i == 30)
             {
                 <h1 align= "center">Group F</h1>
             }
-            else if (i == 37)
+            else if (i == 36)
             {
                 <h1 align= "center">Group G</h1>
             }
-            else if (i == 43)
+            else if (i == 42)
             {
                 <h1 align= "center">Group H</h1>
             }
@@ -46,16 +47,17 @@
             {
                 @if (@team.placeInGroup == @match.home)
                 {
-                    @team.name
-                }   
+                    @team.name 
+                }
             }
-            vs @foreach (var team in @Model.listOfTeams)
+             @Model.arrayOfResult[i].homeGoals : @Model.arrayOfResult[i].awayGoals  
+            @foreach (var team in @Model.listOfTeams)
             {
-                @if (@team.placeInGroup == @match.away)
-                {
-                    @team.name
-                }   
+            @if (@team.placeInGroup == @match.away)
+            {
+                 @team.name
             }
+        }
             @{
                 i++;
             }

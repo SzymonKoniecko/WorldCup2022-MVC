@@ -4,5 +4,6 @@
     {
         public List<GroupStageVM> listOfMatches = new List<GroupStageVM>();
         public List<TeamVM> listOfTeams = new List<TeamVM>();
+        public MatchVM[] arrayOfResult = new MatchVM[49];
     }
 }
