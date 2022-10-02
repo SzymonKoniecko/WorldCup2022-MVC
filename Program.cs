@@ -19,11 +19,15 @@ builder.Services.AddDbContext<GroupStageContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<TeamContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<MatchesContext>(options =>
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddTransient<ITeamRespository, TeamRespository>();
 builder.Services.AddTransient<ITeamService, TeamService>();
 builder.Services.AddTransient<IGroupStageRespository, GroupStageRespository>();
 builder.Services.AddTransient<IGroupStageService, GroupStageService>();
+builder.Services.AddTransient<IMatchesRespository, MatchesRespository>();
+builder.Services.AddTransient<IMatchesService, MatchesService>();
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
