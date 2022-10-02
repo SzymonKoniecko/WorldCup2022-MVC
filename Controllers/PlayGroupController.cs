@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WorldCup2022_MVC.Interfaces;
 using WorldCup2022_MVC.ViewModels;
 using WorldCup2022_MVC.Session;
+using Newtonsoft.Json;
 namespace WorldCup2022_MVC.Controllers
 {
     public class PlayGroupController : Controller
@@ -10,15 +11,17 @@ namespace WorldCup2022_MVC.Controllers
         //private readonly IGroupStageService _groupStageservice;
         private readonly ITeamService _teamservice;
         private readonly IGroupStageService _groupstageservice;
+        private readonly IMatchesService _matchesService;
         private List<MatchVM> matches = new List<MatchVM>();
-        public PlayGroupController(ITeamService teamservice, IGroupStageService groupstageservice)
+        public PlayGroupController(ITeamService teamservice, IGroupStageService groupstageservice, IMatchesService matchesService)
         {
             _teamservice = teamservice;
             _groupstageservice = groupstageservice;
+            _matchesService = matchesService;
         }
 
         // GET: PlayGroupController
-        public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice)
+        public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice, [FromServices] IMatchesService matchesService)
         {
             //HttpContext.Session.SetSession("Matches", Play());
             MatchVM[] result = new MatchVM[49];
@@ -32,6 +35,9 @@ namespace WorldCup2022_MVC.Controllers
                 listOfMatches = _groupstageservice.GetAllMatches(),
                 arrayOfResult = result
             };
+            var json = JsonConvert.SerializeObject(alldata);
+            var id = generateID();
+            _matchesService.SaveAllMatches(id, json);
             return View(alldata);
         }
         [HttpPost]
@@ -54,6 +60,18 @@ namespace WorldCup2022_MVC.Controllers
                 isHomeWinner = false
             };
             return match;
+        }
+        [HttpPost]
+        public ActionResult SaveMatches(TeamsMatchesVM tmVM)
+        {
+            TeamsMatchesVM teamsMatchesVM = tmVM as TeamsMatchesVM;
+            return View(teamsMatchesVM);
+        }
+        private string generateID()
+        {
+            Guid guid = Guid.NewGuid();
+            string str = guid.ToString();
+            return str;
         }
     }
 }

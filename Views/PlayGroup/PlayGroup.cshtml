@@ -6,6 +6,7 @@
     int i = 0;
     int j = 0;
 }
+
 <h1 align= "center">@ViewData["Title"]</h1>
 
     @foreach(var match in @Model.listOfMatches){
@@ -63,4 +64,7 @@
             }
         </h3>
     }
-
+    @using (Html.BeginForm("SaveMatches","PlayGroup", new { tmVm = Model }, FormMethod.Post))
+{
+    <button>Save</button>
+}
