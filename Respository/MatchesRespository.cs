@@ -24,6 +24,9 @@ namespace WorldCup2022_MVC.Respository
             _context.Add(allmatches);
             _context.SaveChanges();
         }
-
+        public Matches GetAllMatches(string id)
+        {
+            return _context.Matches.FirstOrDefault(m => m.Id == id);
+        }
     }
 }

@@ -23,7 +23,8 @@ namespace WorldCup2022_MVC.Controllers
         // GET: PlayGroupController
         public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice, [FromServices] IMatchesService matchesService)
         {
-            //HttpContext.Session.SetSession("Matches", Play());
+
+            var id = generateID();
             MatchVM[] result = new MatchVM[49];
             for (int i = 0; i < 49; i++)
             {
@@ -36,19 +37,34 @@ namespace WorldCup2022_MVC.Controllers
                 arrayOfResult = result
             };
             var json = JsonConvert.SerializeObject(alldata);
-            var id = generateID();
             _matchesService.SaveAllMatches(id, json);
             return View(alldata);
+        }
+        public ActionResult PlayGroupById(string? id, [FromServices] IMatchesService matchesService)
+        {
+            string data = matchesService.GetAllMatches(id);
+            TeamsMatchesVM matches = JsonConvert.DeserializeObject<TeamsMatchesVM>(data);
+            return View(matches);
         }
         [HttpPost]
         public MatchVM Play()
         {
             Random random = new Random();
-            int hOppor = random.Next(0, 10);
-            int aOppor = random.Next(0, 10);
+            int hOppor = random.Next(0, 7);
+            int aOppor = random.Next(0, 7);
             float hEff = (float)(random.Next(0, 100) * 0.01);
             float aEff = (float)(random.Next(0, 100) * 0.01);
-
+            int homeGoals = (int)Math.Floor(hOppor * hEff);
+            int awayGoals = (int)Math.Floor(aOppor * aEff);
+            bool isHomeWinner = false;
+            if (homeGoals > awayGoals)
+            {
+                isHomeWinner = true;
+            }
+            else
+            {
+                isHomeWinner = false;
+            }
             var match = new MatchVM()
             {
                 homeOpportunities = hOppor,
@@ -57,16 +73,12 @@ namespace WorldCup2022_MVC.Controllers
                 awayEfficiency = aEff,
                 homeGoals = (int)Math.Floor(hOppor * hEff),
                 awayGoals = (int)Math.Floor(aOppor * aEff),
-                isHomeWinner = false
+                isHomeWinner = isHomeWinner
             };
             return match;
         }
-        [HttpPost]
-        public ActionResult SaveMatches(TeamsMatchesVM tmVM)
-        {
-            TeamsMatchesVM teamsMatchesVM = tmVM as TeamsMatchesVM;
-            return View(teamsMatchesVM);
-        }
+        
+        
         private string generateID()
         {
             Guid guid = Guid.NewGuid();

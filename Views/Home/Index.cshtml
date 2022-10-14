@@ -2,11 +2,14 @@
 @model IEnumerable<TeamVM>;
 @{
     ViewData["Title"] = "Home Page";
+    string id = "f2915e13-f83b-4d5d-97fb-858fc5dbbef2";
 }
 
 <div class="text-center">
     
     <a href="/PlayGroup/PlayGroup"> <h1>Play</h1> </a>
+    
+    
 @if (@Model == null)
     {
         <div class="alert alert-danger">No available groups found</div>
@@ -159,3 +162,9 @@
         </table>   
     }
 </div>
+<h1>Import already existing results:</h1>
+    <form action="/PlayGroup/PlayGroupById?id=@id">
+        <label for="id">Set an id:</label>
+        <input type="text" id="id" name="id"><br><br>
+        <input type="submit" value="Submit">
+    </form>
