@@ -5,5 +5,6 @@ namespace WorldCup2022_MVC.Interfaces
     public interface IMatchesRespository
     {
         public void SaveAllMatches(string Id, string Json);
+        public Matches GetAllMatches(string id);
     }
 }
