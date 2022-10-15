@@ -28,7 +28,9 @@ namespace WorldCup2022_MVC.Controllers
             resultsGroupStage.TeamsMatchesVM = JsonConvert.DeserializeObject<TeamsMatchesVM>(data);
             var results = DataForTable(resultsGroupStage);
             ViewBag.id = id;
+
             var sorted_results = SortResults(results);
+            
             return View(sorted_results);
         }
         private Dictionary<TeamVM, StatisticsVM> DataForTable(ResultsGroupStageVM rgs)
@@ -66,9 +68,10 @@ namespace WorldCup2022_MVC.Controllers
                 if (rgs.TeamsMatchesVM.arrayOfResult[array[i]].homePlaceInGroup == placeIngroup)
                 {
                     stats.opportunities = stats.opportunities + rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeOpportunities;
-                    stats.efficiency = stats.efficiency + rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeEfficiency;
+                    stats.efficiency = (stats.efficiency + rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeEfficiency) / 2;
                     stats.goals_lost = stats.goals_lost + rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayGoals;
                     stats.goals_scored = stats.goals_scored + rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeGoals;
+                    stats.goal_balance = stats.goals_scored - stats.goals_lost;
                     if (rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeGoals > rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayGoals)
                     {
                         points = points + 3;
@@ -81,9 +84,10 @@ namespace WorldCup2022_MVC.Controllers
                 else if (rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayPlaceInGroup == placeIngroup)
                 {
                     stats.opportunities = stats.opportunities + rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayOpportunities;
-                    stats.efficiency = stats.efficiency + rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayEfficiency;
+                    stats.efficiency = (stats.efficiency + rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayEfficiency) / 2;
                     stats.goals_lost = stats.goals_lost + rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeGoals;
                     stats.goals_scored = stats.goals_scored + rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayGoals;
+                    stats.goal_balance = stats.goals_scored - stats.goals_lost;
                     if (rgs.TeamsMatchesVM.arrayOfResult[array[i]].homeGoals < rgs.TeamsMatchesVM.arrayOfResult[array[i]].awayGoals)
                     {
                         points = points + 3;
@@ -95,6 +99,8 @@ namespace WorldCup2022_MVC.Controllers
                 }
 
             }
+            double x = Math.Round(stats.efficiency, 2);
+            stats.efficiency = x;
             stats.points = points;
             return stats;
         }
@@ -129,26 +135,72 @@ namespace WorldCup2022_MVC.Controllers
                     the_best = second;
                     worse = first;
                 }
+                else if (first.Value.points == second.Value.points && first.Value.goal_balance < second.Value.goal_balance)
+                {
+                    the_best = second;
+                    worse = first;
+                }
 
                 if (third.Value.points < fourth.Value.points)
                 {
                     good = fourth;
                     the_worst = third;
                 }
-
-                if (worse.Value.points < the_worst.Value.points)
+                else if (third.Value.points == fourth.Value.points && third.Value.goal_balance < fourth.Value.goal_balance)
                 {
-                    var tmp = the_worst;
-                    the_worst = worse;
-                    worse = tmp;
+                    good = fourth;
+                    the_worst = third;
                 }
-
                 if (the_best.Value.points < good.Value.points)
                 {
                     var tmp = the_best;
                     the_best = good;
                     good = tmp;
                 }
+                else if (the_best.Value.points == good.Value.points && the_best.Value.goal_balance < good.Value.goal_balance)
+                {
+                    var tmp = the_best;
+                    the_best = good;
+                    good = tmp;
+                }
+                if (worse.Value.points > good.Value.points)
+                {
+                    var tmp = good;
+                    good = worse;
+                    worse = tmp;
+                }
+                else if (worse.Value.points == good.Value.points && good.Value.goal_balance < worse.Value.goal_balance)
+                {
+                    var tmp = good;
+                    good = worse;
+                    worse = tmp;
+                }
+                if (the_worst.Value.points > good.Value.points)
+                {
+                    var tmp = good;
+                    good = the_worst;
+                    the_worst = tmp;
+                }
+                else if (the_worst.Value.points == good.Value.points && good.Value.goal_balance < the_worst.Value.goal_balance)
+                {
+                    var tmp = good;
+                    good = the_worst;
+                    the_worst = tmp;
+                }
+                if (worse.Value.points < the_worst.Value.points)
+                {
+                    var tmp = the_worst;
+                    the_worst = worse;
+                    worse = tmp;
+                }
+                else if (worse.Value.points == the_worst.Value.points && worse.Value.goal_balance < the_worst.Value.goal_balance)
+                {
+                    var tmp = the_worst;
+                    the_worst = worse;
+                    worse = tmp;
+                }
+
+
 
                 sorted.Add((TeamVM)the_best.Key, (StatisticsVM)the_best.Value);
                 sorted.Add((TeamVM)good.Key, (StatisticsVM)good.Value);

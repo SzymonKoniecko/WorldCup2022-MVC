@@ -9,11 +9,12 @@
 <div>
     
     <h1>Group A</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -24,13 +25,14 @@
                 @if (j < 5)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                             j++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -38,13 +40,18 @@
                     </tr>
                 }
             }
+        @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group B</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -56,12 +63,13 @@
                 @if (j > 4 && j < 9)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -69,13 +77,18 @@
                     </tr>
                 }
             }
+            @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group C</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -87,12 +100,13 @@
                 @if (j > 8 && j < 13)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -100,13 +114,18 @@
                     </tr>
                 }
             }
+            @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group D</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -118,12 +137,13 @@
                 @if (j > 12 && j <17)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -131,13 +151,18 @@
                     </tr>
                 }
             }
+            @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group E</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -149,12 +174,13 @@
                 @if (j > 16 && j < 21)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -162,13 +188,18 @@
                     </tr>
                 }
             }
+            @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group F</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -180,12 +211,13 @@
                 @if (j > 20 && j < 25)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -193,13 +225,18 @@
                     </tr>
                 }
             }
+            @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group G</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -208,15 +245,16 @@
           @foreach (var item in @Model)
             {
                 j++;
-                @if (j > 24 && j < 28)
+                @if (j > 24 && j <= 28)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
@@ -224,13 +262,18 @@
                     </tr>
                 }
             }
+            @{
+            i = 1;
+            j = 0;
+        }
         </table>
     <h1>Group H</h1>
-        <table>
+        <table border="1"  cellpadding = "5" cellspacing = "5">
           <tr>
             <th>Place</th>
             <th>Country</th>
             <th>Points</th>
+            <th>Goal balance</th>
             <th>Goals scored</th>
             <th>Goals lost</th>
             <th>Efficiency</th>
@@ -239,15 +282,16 @@
           @foreach (var item in @Model)
             {
                 j++;
-                @if (j > 28 && j < 32)
+                @if (j > 28 && j < 33)
                 {
                     <tr>
-                        <th>@j</th>
+                        <th>@i</th>
                         @{
                             i++;
                         }
                         <th>@item.Key.name</th>
                         <th>@item.Value.points</th>
+                        <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
                         <th>@item.Value.goals_lost</th>
                         <th>@item.Value.efficiency</th>
