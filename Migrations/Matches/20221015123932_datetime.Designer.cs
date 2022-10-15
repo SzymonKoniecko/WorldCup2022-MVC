@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorldCup2022_MVC.Contexts;
 
@@ -11,9 +12,10 @@ using WorldCup2022_MVC.Contexts;
 namespace WorldCup2022_MVC.Migrations.Matches
 {
     [DbContext(typeof(MatchesContext))]
-    partial class MatchesContextModelSnapshot : ModelSnapshot
+    [Migration("20221015123932_datetime")]
+    partial class datetime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
