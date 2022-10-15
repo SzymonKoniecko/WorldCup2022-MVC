@@ -227,6 +227,70 @@ namespace WorldCup2022_MVC.Controllers
                 if (i != 3 && i != 4 && i != 7 && i != 8 && i != 11 && i != 12 && i != 15 && i != 16 && i != 19 && i != 20 && i != 23 && i != 24 && i != 27 && i != 28 && i != 31 && i != 32)
                 {
                     teams[index] = item.Key;
+                    if (i == 1)
+                    {
+                        teams[index].placeInGroup = "A1";
+                    }
+                    else if (i == 2)
+                    {
+                        teams[index].placeInGroup = "A2";
+                    }
+                    else if (i == 5)
+                    {
+                        teams[index].placeInGroup = "B1";
+                    }
+                    else if (i == 6)
+                    {
+                        teams[index].placeInGroup = "B2";
+                    }
+                    else if (i == 9)
+                    {
+                        teams[index].placeInGroup = "C1";
+                    }
+                    else if (i == 10)
+                    {
+                        teams[index].placeInGroup = "C2";
+                    }
+                    else if (i == 13)
+                    {
+                        teams[index].placeInGroup = "D1";
+                    }
+                    else if (i == 14)
+                    {
+                        teams[index].placeInGroup = "D2";
+                    }
+                    else if (i == 17)
+                    {
+                        teams[index].placeInGroup = "E1";
+                    }
+                    else if (i == 18)
+                    {
+                        teams[index].placeInGroup = "E2";
+                    }
+                    else if (i == 21)
+                    {
+                        teams[index].placeInGroup = "F1";
+                    }
+                    else if (i == 22)
+                    {
+                        teams[index].placeInGroup = "F2";
+                    }
+                    else if (i == 25)
+                    {
+                        teams[index].placeInGroup = "G1";
+                    }
+                    else if (i == 26)
+                    {
+                        teams[index].placeInGroup = "G2";
+                    }
+                    else if (i == 29)
+                    {
+                        teams[index].placeInGroup = "H1";
+                    }
+                    else if (i == 30)
+                    {
+                        teams[index].placeInGroup = "H2";
+                    }
                     index++;
                 }
                 i++;
