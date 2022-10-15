@@ -5,7 +5,13 @@
     ViewData["Title"] = "Results";
     int i = 1;
     int j = 1;
+    string id = ViewBag.id;
 }
+<form action="/KnockoutStage/KnockoutStageById?id=@id">
+        <label for="id">KnockoutStage</label>
+        <input type="text" id="id" name="id" value="@id"><br><br>
+        <input type="submit" value="KnockoutStage">
+    </form>
 <div>
     
     <h1>Group A</h1>

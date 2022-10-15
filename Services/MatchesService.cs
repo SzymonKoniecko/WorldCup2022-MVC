@@ -20,20 +20,7 @@ namespace WorldCup2022_MVC.Services
         {
             _respository.GetAllMatches(id);
         }
-        //public List<MatchesVM> GetAllData(IQueryable<MatchesVM> matches)
-        //{
-        //    List<MatchesVM> list = new List<MatchesVM>();
-        //    foreach (var item in matches)
-        //    {
-        //        var data = new MatchesVM()
-        //        {
-        //            Id = item.Id,
-        //            Json = item.Json,
-        //        };
-        //        list.Add(data);
-        //    }
-        //    return list;
-        //}
+        
         public string GetAllMatches(string id)
         {
             var data = _respository.GetAllMatches(id);
