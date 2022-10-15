@@ -35,7 +35,7 @@ namespace WorldCup2022_MVC.Controllers
             }
             for (int i = 0; i < 48; i++)
             {
-                result[i] = Play(i, arrayOfPendingMatches);
+                result[i] = SimulateMatchForGroupPhase(i, arrayOfPendingMatches);
             }
             var alldata = new TeamsMatchesVM
             {
@@ -56,8 +56,7 @@ namespace WorldCup2022_MVC.Controllers
             ViewBag.id = id;
             return View(matches);
         }
-        [HttpPost]
-        private MatchVM Play(int i, GroupStageVM[] array_gs)
+        private MatchVM SimulateMatchForGroupPhase(int i, GroupStageVM[] array_gs)
         {
             Random random = new Random();
             int hOppor = random.Next(0, 7);

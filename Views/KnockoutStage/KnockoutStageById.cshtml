@@ -1,18 +1,174 @@
 ﻿@using WorldCup2022_MVC.ViewModels
 @using System.Linq;
-@model TeamsMatchesVM
+@model MatchVM[]
 @{
     ViewData["Title"] = "Knockout Stage!";
-    int i = 0;
-    int j = 0;
     string id = ViewBag.id;
+    int i = 0;
+    int indexhome = 0;
+    int indexaway = 0;
 }
 
 <h1 align= "center">@ViewData["Title"]</h1>
-<form action="/Table/TableById?id=@id">
-        <label for="id">Table:</label>
-        <input type="text" id="id" name="id" value="@id"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
+    <h2>
+        @for (int j = 0; j < 16; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.teams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 16; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.teams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name
+    </h2>
+    @{
+        i++;
+    }
     
  
