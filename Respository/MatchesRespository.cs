@@ -19,7 +19,8 @@ namespace WorldCup2022_MVC.Respository
             var allmatches = new Matches()
             {
                 Id = Id,
-                Json = json
+                Json = json,
+                CreatedDate = DateTime.Now,
             };
             _context.Add(allmatches);
             _context.SaveChanges();
