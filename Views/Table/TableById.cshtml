@@ -1,0 +1,259 @@
+﻿@using WorldCup2022_MVC.ViewModels
+@using System.Linq;
+@model Dictionary<TeamVM, StatisticsVM>
+@{
+    ViewData["Title"] = "Results";
+    int i = 1;
+    int j = 1;
+}
+<div>
+    
+    <h1>Group A</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                @if (j < 5)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                            j++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group B</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 4 && j < 9)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group C</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 8 && j < 13)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group D</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 12 && j <17)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group E</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 16 && j < 21)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group F</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 20 && j < 25)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group G</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 24 && j < 28)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+    <h1>Group H</h1>
+        <table>
+          <tr>
+            <th>Place</th>
+            <th>Country</th>
+            <th>Points</th>
+            <th>Goals scored</th>
+            <th>Goals lost</th>
+            <th>Efficiency</th>
+            <th>Opportunities</th>
+          </tr>
+          @foreach (var item in @Model)
+            {
+                j++;
+                @if (j > 28 && j < 32)
+                {
+                    <tr>
+                        <th>@j</th>
+                        @{
+                            i++;
+                        }
+                        <th>@item.Key.name</th>
+                        <th>@item.Value.points</th>
+                        <th>@item.Value.goals_scored</th>
+                        <th>@item.Value.goals_lost</th>
+                        <th>@item.Value.efficiency</th>
+                        <th>@item.Value.opportunities</th>
+                    </tr>
+                }
+            }
+        </table>
+</div>
