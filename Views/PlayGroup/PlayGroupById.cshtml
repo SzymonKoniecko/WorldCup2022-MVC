@@ -5,10 +5,15 @@
     ViewData["Title"] = "Play Group received from DB";
     int i = 0;
     int j = 0;
+    string id = ViewBag.id;
 }
 
 <h1 align= "center">@ViewData["Title"]</h1>
-
+<form action="/Table/TableById?id=@id">
+        <label for="id">Table:</label>
+        <input type="text" id="id" name="id" value="@id"><br><br>
+        <input type="submit" value="Submit">
+    </form>
     @foreach(var match in @Model.listOfMatches){
         
             @if (i == 0)
@@ -54,11 +59,11 @@
              @Model.arrayOfResult[i].homeGoals : @Model.arrayOfResult[i].awayGoals  
             @foreach (var team in @Model.listOfTeams)
             {
-            @if (@team.placeInGroup == @match.away)
-            {
-                 @team.name
+                @if (@team.placeInGroup == @match.away)
+                {
+                     @team.name
+                }
             }
-        }
             @{
                 i++;
             }

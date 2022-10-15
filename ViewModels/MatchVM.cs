@@ -12,5 +12,7 @@
         public int awayGoals { get; set; }
 
         public bool isHomeWinner { get; set; }
+        public string homePlaceInGroup { get; set; }
+        public string awayPlaceInGroup { get; set; }
     }
 }
