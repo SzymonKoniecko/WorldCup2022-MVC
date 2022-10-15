@@ -11,15 +11,17 @@ namespace WorldCup2022_MVC.Controllers
         private readonly ITeamService _teamservice;
         private readonly IGroupStageService _groupstageservice;
         private readonly IMatchesService _matchesService;
+        private readonly IPromotedTeamsService _promotedTeamsService;
         private List<MatchVM> matches = new List<MatchVM>();
-        public TableController(ITeamService teamservice, IGroupStageService groupstageservice, IMatchesService matchesService)
+        public TableController(ITeamService teamservice, IGroupStageService groupstageservice, IMatchesService matchesService, IPromotedTeamsService promotedTeamsService)
         {
             _teamservice = teamservice;
             _groupstageservice = groupstageservice;
             _matchesService = matchesService;
+            _promotedTeamsService = promotedTeamsService;
         }
         [HttpGet]
-        public ActionResult TableById(string id, [FromServices] ITeamService teamService, [FromServices] IMatchesService matchesService)
+        public ActionResult TableById(string id, [FromServices] ITeamService teamService, [FromServices] IMatchesService matchesService, [FromServices] IPromotedTeamsService promotedTeamsService)
         {
             string data = matchesService.GetAllMatches(id);
             GroupStageVM group = new GroupStageVM();
@@ -31,6 +33,7 @@ namespace WorldCup2022_MVC.Controllers
 
             var sorted_results = SortResults(results);
             var jsonOfWinners = TeamsToKnockoutStage(sorted_results);
+            promotedTeamsService.SavePromotedTeams(id, jsonOfWinners);
             return View(sorted_results);
         }
         private Dictionary<TeamVM, StatisticsVM> DataForTable(ResultsGroupStageVM rgs)
@@ -218,7 +221,7 @@ namespace WorldCup2022_MVC.Controllers
         {
             int i = 1;
             int index = 0;
-            TeamVM[] teams = new TeamVM[dictionary.Count];
+            TeamVM[] teams = new TeamVM[dictionary.Count/2];
             foreach (var item in dictionary)
             {
                 if (i != 3 && i != 4 && i != 7 && i != 8 && i != 11 && i != 12 && i != 15 && i != 16 && i != 19 && i != 20 && i != 23 && i != 24 && i != 27 && i != 28 && i != 31 && i != 32)
