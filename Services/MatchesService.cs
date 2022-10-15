@@ -16,10 +16,6 @@ namespace WorldCup2022_MVC.Services
         {
             _respository.SaveAllMatches(Id, json);
         }
-        public void GetAllData(string id)
-        {
-            _respository.GetAllMatches(id);
-        }
         
         public string GetAllMatches(string id)
         {

@@ -30,7 +30,7 @@ namespace WorldCup2022_MVC.Controllers
             ViewBag.id = id;
 
             var sorted_results = SortResults(results);
-            
+            var jsonOfWinners = TeamsToKnockoutStage(sorted_results);
             return View(sorted_results);
         }
         private Dictionary<TeamVM, StatisticsVM> DataForTable(ResultsGroupStageVM rgs)
@@ -62,7 +62,6 @@ namespace WorldCup2022_MVC.Controllers
         {
             StatisticsVM stats = new StatisticsVM();
             int points = 0;
-            //int numOfPlayedMatch = 0;
             for (int i = 0; i < 3; i++)
             {
                 if (rgs.TeamsMatchesVM.arrayOfResult[array[i]].homePlaceInGroup == placeIngroup)
@@ -214,6 +213,23 @@ namespace WorldCup2022_MVC.Controllers
             Guid guid = Guid.NewGuid();
             string str = guid.ToString();
             return str;
+        }
+        private string TeamsToKnockoutStage(Dictionary<TeamVM, StatisticsVM> dictionary)
+        {
+            int i = 1;
+            int index = 0;
+            TeamVM[] teams = new TeamVM[dictionary.Count];
+            foreach (var item in dictionary)
+            {
+                if (i != 3 && i != 4 && i != 7 && i != 8 && i != 11 && i != 12 && i != 15 && i != 16 && i != 19 && i != 20 && i != 23 && i != 24 && i != 27 && i != 28 && i != 31 && i != 32)
+                {
+                    teams[index] = item.Key;
+                    index++;
+                }
+                i++;
+            }
+            var json = JsonConvert.SerializeObject(teams);
+            return json;
         }
     }
 }

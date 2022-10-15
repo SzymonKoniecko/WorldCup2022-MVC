@@ -21,12 +21,14 @@ namespace WorldCup2022_MVC.Controllers
         {
             ViewBag.id = id;
             var matches = _knockoutStageservice.GetAllEntries();
+            var teams = WinnersOfTheGroup();
             return View();
         }
-        private List<TeamVM> WinnersOfTheGroup()
+        private TeamVM[] WinnersOfTheGroup()
         {
-            List<TeamVM> matches = new List<TeamVM>();
-            return matches;
+            TeamVM[] teamsInKnockoutStage = new TeamVM[16];
+
+            return teamsInKnockoutStage;
         }
     }
 }
