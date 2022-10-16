@@ -23,30 +23,71 @@ namespace WorldCup2022_MVC.Controllers
         public ActionResult KnockoutStageById(string? id)
         {
             ViewBag.id = id;
-            var matches = _knockoutStageservice.GetAllEntries();
+            var knockoutStageVMs = _knockoutStageservice.GetAllEntries();
             var json_teams = _promotedteamsservice.GetAllPromotedTeams(id);
             var teams = JsonConvert.DeserializeObject<TeamVM[]>(json_teams);
-            ViewBag.teams = teams;
-            MatchKnockoutStageVM[] matchesKSVM = new MatchKnockoutStageVM[8];
-            string[] winners = new string[8];
+            MatchKnockoutStageVM[] matchesKSVM = new MatchKnockoutStageVM[15];
             string[] placesInKnockoutStage = new string[32];
-            WinnerVM[] winnersKSVM = new WinnerVM[16];
+            WinnerVM[] winnersKSVM = new WinnerVM[15];
             int j = 0;
             for (int i = 0; i < 16; i++)
             {
-                placesInKnockoutStage[j] = matches[i].home;
+                placesInKnockoutStage[j] = knockoutStageVMs[i].home;
                 j++;
-                placesInKnockoutStage[j] = matches[i].away;
+                placesInKnockoutStage[j] = knockoutStageVMs[i].away;
                 j++;
             }
+            for (int i = 0; i < 15; i++)
+            { // 1/16
+                (matchesKSVM[i], winnersKSVM[i]) = SimulateMatchForKnockoutPhase(i, knockoutStageVMs, placesInKnockoutStage);
+            }
+            /// 1/8
+            TeamVM[] quarterfinal_teamVMs = new TeamVM[8 + 1];
             for (int i = 0; i < 8; i++)
             {
-                (matchesKSVM[i], winnersKSVM[i]) = SimulateMatchForKnockoutPhase(i, matches, placesInKnockoutStage);
+                string teamPlaceInTheGroup = winnersKSVM[i].teamPlaceInGroup;
+                string newPlaceInTheGroup = winnersKSVM[i].newPlaceInKnockoutStage;
+                for (int k = 0; k < 16; k++)
+                {
+                    if (teamPlaceInTheGroup == teams[k].placeInGroup)
+                    {
+                        quarterfinal_teamVMs[i] = teams[k];
+                        quarterfinal_teamVMs[i].placeInGroup = newPlaceInTheGroup;
+                    }
+                }
             }
-            for (int i = 0; i < 8; i++)
+            ViewBag.quarterteams = quarterfinal_teamVMs;
+            TeamVM[] semifinal_teamVMs = new TeamVM[4];
+            for (int i = 0; i < 4; i++)
             {
-                Console.WriteLine(winnersKSVM[i].teamPlaceInGroup + " " + winnersKSVM[i].newPlaceInKnockoutStage);
+                string teamPlaceInTheGroup = winnersKSVM[i + 8].teamPlaceInGroup;
+                string newPlaceInTheGroup = winnersKSVM[i + 8].newPlaceInKnockoutStage;
+                for (int k = 0; k < 8; k++)
+                {
+                    if (teamPlaceInTheGroup == quarterfinal_teamVMs[k].placeInGroup)
+                    {
+                        semifinal_teamVMs[i] = quarterfinal_teamVMs[k];
+                        semifinal_teamVMs[i].placeInGroup = newPlaceInTheGroup;
+                    }
+                }
             }
+            ViewBag.semifinalteams = semifinal_teamVMs;
+            TeamVM[] final_teamVMs = new TeamVM[2];
+            for (int i = 0; i < 2; i++)
+            {
+                string teamPlaceInTheGroup = winnersKSVM[i + 12].teamPlaceInGroup;
+                string newPlaceInTheGroup = winnersKSVM[i + 12].newPlaceInKnockoutStage;
+                for (int k = 0; k < 4; k++)
+                {
+                    if (teamPlaceInTheGroup == semifinal_teamVMs[k].placeInGroup)
+                    {
+                        final_teamVMs[i] = semifinal_teamVMs[k];
+                        final_teamVMs[i].placeInGroup = newPlaceInTheGroup;
+                    }
+                }
+            }
+            ViewBag.final = final_teamVMs;
+            ViewBag.teams = teams;
             return View(matchesKSVM);
         }
         private (MatchKnockoutStageVM, WinnerVM) SimulateMatchForKnockoutPhase(int i, KnockoutStageVM[] knockoutStageVMs, string[] places)
