@@ -21,6 +21,10 @@ builder.Services.AddDbContext<TeamContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<MatchesContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<KnockoutStageContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<PromotedTeamsContext>(options =>
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddTransient<ITeamRespository, TeamRespository>();
 builder.Services.AddTransient<ITeamService, TeamService>();
@@ -28,6 +32,10 @@ builder.Services.AddTransient<IGroupStageRespository, GroupStageRespository>();
 builder.Services.AddTransient<IGroupStageService, GroupStageService>();
 builder.Services.AddTransient<IMatchesRespository, MatchesRespository>();
 builder.Services.AddTransient<IMatchesService, MatchesService>();
+builder.Services.AddTransient<IKnockoutStageRespository, KnockoutStageRespository>();
+builder.Services.AddTransient<IKnockoutStageService, KnockoutStageService>();
+builder.Services.AddTransient<IPromotedTeamsRespository, PromotedTeamsRespository>();
+builder.Services.AddTransient<IPromotedTeamsService, PromotedTeamsService>();
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
