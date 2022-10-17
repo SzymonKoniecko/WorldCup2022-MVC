@@ -4,198 +4,231 @@ INSERT INTO [WorldCup2022].[dbo].[Team]   (
       ,[name]
       ,[picture]
       ,[placeInGroup]
+      ,[placeInGlobalRanking]
 )
 VALUES
     (
         1,
         'Qatar',
         'url:',
-        'A1'
+        'A1',
+        50
     ),
     (
         2,
         'Ecuador',
         'url:',
-        'A2'
+        'A2',
+        44
     ),
     (
         3,
         'Senegal',
         'url:',
-        'A3'
+        'A3',
+        18
     ),
     (
         4,
         'Netherlands',
         'url:',
-        'A4'
+        'A4',
+        8
     ),
     (
         5,
         'England',
         'url:',
-        'B1'
+        'B1',
+        5
     ),
     (
         6,
         'Iran',
         'url:',
-        'B2'
+        'B2',
+        20
     ),
     (
         7,
         'United States',
         'url:',
-        'B3'
+        'B3',
+        16
     ),
     (
         8,
         'Wales',
         'url:',
-        'B4'
+        'B4',
+        19
     ),
     (
         9,
         'Argentina',
         'url:',
-        'C1'
+        'C1',
+        3
     ),
     (
         10,
         'Saudi Arabia',
         'url:',
-        'C2'
+        'C2',
+        51
     ),
     (
         11,
         'Mexico',
         'url:',
-        'C3'
+        'C3',
+        13
     ),
     (
         12,
         'Poland',
         'url:',
-        'C4'
+        'C4',
+        26
     ),
     (
         13,
         'France',
         'url:',
-        'D1'
+        'D1',
+        4
     ),
     (
         14,
         'Australia',
         'url:',
-        'D2'
+        'D2',
+        38
     ),
     (
         15,
         'Denmark',
         'url:',
-        'D3'
+        'D3',
+        10
     ),
     (
         16,
         'Tunisia',
         'url:',
-        'D4'
+        'D4',
+        30
     ),
     (
         17,
         'Spain',
         'url:',
-        'E1'
+        'E1',
+        7
     ),
     (
         18,
         'Costa Rica',
         'url:',
-        'E2'
+        'E2',
+        31
     ),
     (
         19,
         'Germany',
         'url:',
-        'E3'
+        'E3',
+        11
     ),
     (
         20,
         'Japan',
         'url:',
-        'E4'
+        'E4',
+        24
     ),
     (
         21,
         'Belgium',
         'url:',
-        'F1'
+        'F1',
+        2
     ),
     (
         22,
         'Canada',
         'url:',
-        'F2'
+        'F2',
+        41
     ),
     (
         23,
-        'Marocco',
+        'Morocco',
         'url:',
-        'F3'
+        'F3',
+        22
     ),
     (
         24,
         'Croatia',
         'url:',
-        'F4'
+        'F4',
+        12
     ),
     (
         25,
         'Brazil',
         'url:',
-        'G1'
+        'G1',
+        1
     ),
     (
         26,
         'Serbia',
         'url:',
-        'G2'
+        'G2',
+        21
     ),
     (
         27,
         'Switzerland',
         'url:',
-        'G3'
+        'G3',
+        15
     ),
     (
         28,
         'Cameroon',
         'url:',
-        'G4'
+        'G4',
+        43
     ),
     (
         29,
         'Portugal',
         'url:',
-        'H1'
+        'H1',
+        9
     ),
     (
         30,
         'Ghana',
         'url:',
-        'H2'
+        'H2',
+        61
     ),
     (
         31,
         'Uruguay',
         'url:',
-        'H3'
+        'H3',
+        14
     ),
     (
         32,
         'South Korea',
         'url:',
-        'H4'
+        'H4',
+        28
     );
     

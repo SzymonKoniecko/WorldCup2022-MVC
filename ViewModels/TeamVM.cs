@@ -13,5 +13,6 @@ namespace WorldCup2022_MVC.ViewModels
         public string picture { get; set; }
         [Display(Name = "Position in group")]
         public string placeInGroup { get; set; }
+        public int placeInGlobalRanking { get; set; }
     }
 }
