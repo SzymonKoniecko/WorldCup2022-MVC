@@ -211,7 +211,8 @@
     @{
         i++;
     }
-    <h2>Round of 1/8</h2>
+
+    <h1 color="red">Round of 1/8</h1>
     @for (int j = 0; j < 8; j++)
         {
             @if (@Model[i].homePlaceInGroup == @ViewBag.quarterteams[j].placeInGroup)
@@ -233,6 +234,160 @@
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
             <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
+    @for (int j = 0; j < 8; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.quarterteams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 8; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.quarterteams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
+    @for (int j = 0; j < 8; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.quarterteams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 8; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.quarterteams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
+    @for (int j = 0; j < 8; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.quarterteams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 8; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.quarterteams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
+
+    <h1>Round of 4</h1>
+    @for (int j = 0; j < 4; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.semifinalteams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 4; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.semifinalteams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
+    @for (int j = 0; j < 4; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.semifinalteams[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 4; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.semifinalteams[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
+
+    <h1>Final</h1>
+    @for (int j = 0; j < 2; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.final[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 2; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.final[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.final[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.final[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.final[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.final[indexaway].name</h2>
         }
         @{
         i++;
