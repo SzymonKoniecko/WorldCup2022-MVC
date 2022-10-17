@@ -16,14 +16,18 @@ namespace WorldCup2022_MVC.Respository
 
         public void SaveAllMatches(string Id, string json)
         {
-            var allmatches = new Matches()
+            var matches = GetAllMatches(Id);
+            if (matches == null)
             {
-                Id = Id,
-                Json = json,
-                CreatedDate = DateTime.Now,
-            };
-            _context.Add(allmatches);
-            _context.SaveChanges();
+                var allmatches = new Matches()
+                {
+                    Id = Id,
+                    Json = json,
+                    CreatedDate = DateTime.Now,
+                };
+                _context.Add(allmatches);
+                _context.SaveChanges();
+            }
         }
         public Matches GetAllMatches(string id)
         {

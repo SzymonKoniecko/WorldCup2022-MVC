@@ -13,14 +13,19 @@ namespace WorldCup2022_MVC.Respository
         }
         public void SavePromotedTeams(string Id, string json)
         {
-            var allmatches = new PromotedTeams()
+            
+            var promotedTeams = GetAllPromotedTeams(Id);
+            if (promotedTeams == null)
             {
-                Id = Id,
-                Json = json,
-                CreatedDate = DateTime.Now,
-            };
-            _context.Add(allmatches);
-            _context.SaveChanges();
+                var allmatches = new PromotedTeams()
+                {
+                    Id = Id,
+                    Json = json,
+                    CreatedDate = DateTime.Now,
+                };
+                _context.Add(allmatches);
+                _context.SaveChanges();
+            }
         }
         public PromotedTeams GetAllPromotedTeams(string id)
         {
