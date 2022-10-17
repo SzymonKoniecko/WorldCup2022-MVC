@@ -175,6 +175,13 @@ namespace WorldCup2022_MVC.Controllers
             float aEff = (float)(random.Next(0, 100) * 0.01);
             int homeGoals_draw = (int)Math.Floor(5 * hEff);
             int awayGoals_draw = (int)Math.Floor(5 * aEff);
+            while (homeGoals_draw == awayGoals_draw)
+            {
+                hEff = (float)(random.Next(0, 100) * 0.01);
+                aEff = (float)(random.Next(0, 100) * 0.01);
+                homeGoals_draw = (int)Math.Floor(5 * hEff);
+                awayGoals_draw = (int)Math.Floor(5 * aEff);
+            }
             return (homeGoals_draw, awayGoals_draw);
         }
     }
