@@ -42,7 +42,7 @@ namespace WorldCup2022_MVC.Controllers
                 (matchesKSVM[i], winnersKSVM[i]) = SimulateMatchForKnockoutPhase(i, knockoutStageVMs, placesInKnockoutStage);
             }
             /// 1/8
-            TeamVM[] quarterfinal_teamVMs = new TeamVM[8 + 1];
+            QuarterFinalTeamsVM[] quarterfinal_teamVMs = new QuarterFinalTeamsVM[8];
             for (int i = 0; i < 8; i++)
             {
                 string teamPlaceInTheGroup = winnersKSVM[i].teamPlaceInGroup;
@@ -51,13 +51,19 @@ namespace WorldCup2022_MVC.Controllers
                 {
                     if (teamPlaceInTheGroup == teams[k].placeInGroup)
                     {
-                        quarterfinal_teamVMs[i] = teams[k];
-                        quarterfinal_teamVMs[i].placeInGroup = newPlaceInTheGroup;
+                        var team = new QuarterFinalTeamsVM()
+                        {
+                            teamId = teams[k].teamId,
+                            name = teams[k].name,
+                            picture = teams[k].picture,
+                            placeInGroup = newPlaceInTheGroup
+                        };
+                        quarterfinal_teamVMs[i] = team;
                     }
                 }
             }
             ViewBag.quarterteams = quarterfinal_teamVMs;
-            TeamVM[] semifinal_teamVMs = new TeamVM[4];
+            SemiFinalTeamsVM[] semifinal_teamVMs = new SemiFinalTeamsVM[4];
             for (int i = 0; i < 4; i++)
             {
                 string teamPlaceInTheGroup = winnersKSVM[i + 8].teamPlaceInGroup;
@@ -66,13 +72,19 @@ namespace WorldCup2022_MVC.Controllers
                 {
                     if (teamPlaceInTheGroup == quarterfinal_teamVMs[k].placeInGroup)
                     {
-                        semifinal_teamVMs[i] = quarterfinal_teamVMs[k];
-                        semifinal_teamVMs[i].placeInGroup = newPlaceInTheGroup;
+                        var team = new SemiFinalTeamsVM()
+                        {
+                            teamId = quarterfinal_teamVMs[k].teamId,
+                            name = quarterfinal_teamVMs[k].name,
+                            picture = quarterfinal_teamVMs[k].picture,
+                            placeInGroup = newPlaceInTheGroup
+                        };
+                        semifinal_teamVMs[i] = team;
                     }
                 }
             }
             ViewBag.semifinalteams = semifinal_teamVMs;
-            TeamVM[] final_teamVMs = new TeamVM[2];
+            FinalTeamsVM[] final_teamVMs = new FinalTeamsVM[2];
             for (int i = 0; i < 2; i++)
             {
                 string teamPlaceInTheGroup = winnersKSVM[i + 12].teamPlaceInGroup;
@@ -81,8 +93,14 @@ namespace WorldCup2022_MVC.Controllers
                 {
                     if (teamPlaceInTheGroup == semifinal_teamVMs[k].placeInGroup)
                     {
-                        final_teamVMs[i] = semifinal_teamVMs[k];
-                        final_teamVMs[i].placeInGroup = newPlaceInTheGroup;
+                        var team = new FinalTeamsVM()
+                        {
+                            teamId = semifinal_teamVMs[k].teamId,
+                            name = semifinal_teamVMs[k].name,
+                            picture = semifinal_teamVMs[k].picture,
+                            placeInGroup = newPlaceInTheGroup
+                        };
+                        final_teamVMs[i] = team;
                     }
                 }
             }
