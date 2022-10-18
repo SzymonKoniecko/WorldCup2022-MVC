@@ -10,5 +10,8 @@
         public int awayGoals_draw { get; set; }
         public string homePlaceInGroup { get; set; }
         public string awayPlaceInGroup { get; set; }
+
+        public int placeInGlobalRanking_home { get; set; }
+        public int placeInGlobalRanking_away { get; set; }
     }
 }

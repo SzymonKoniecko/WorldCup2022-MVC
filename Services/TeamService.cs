@@ -22,7 +22,8 @@ namespace WorldCup2022_MVC.Services
                     teamId = item.teamId,
                     name = item.name,
                     picture = item.picture,
-                    placeInGroup = item.placeInGroup
+                    placeInGroup = item.placeInGroup,
+                    placeInGlobalRanking = item.placeInGlobalRanking
                 };
                 list.Add(elementsVM);
             }

@@ -367,7 +367,32 @@
         @{
         i++;
     }
-
+    <h1>Third Place</h1>
+    @for (int j = 0; j < 2; j++)
+        {
+            @if (@Model[i].homePlaceInGroup == @ViewBag.thirdplace[j].placeInGroup)
+            {
+                indexhome = j;
+            }
+        }
+        @for (int k = 0; k < 2; k++)
+        {
+            @if (@Model[i].awayPlaceInGroup == @ViewBag.thirdplace[k].placeInGroup)
+            {
+                indexaway = k;
+            }
+        }
+        @if (@Model[i].homeGoals == @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.thirdplace[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.thirdplace[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+        }
+        @if (@Model[i].homeGoals != @Model[i].awayGoals)
+        {
+            <h2>@ViewBag.thirdplace[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.thirdplace[indexaway].name</h2>
+        }
+        @{
+        i++;
+    }
     <h1>Final</h1>
     @for (int j = 0; j < 2; j++)
         {

@@ -2,7 +2,7 @@
 
 namespace WorldCup2022_MVC.ViewModels
 {
-    public class QuarterFinalTeamsVM
+    public class ThirdPlaceTeamsVM
     {
         public int teamId { get; set; }
         [Display(Name = "Country")]
@@ -12,6 +12,5 @@ namespace WorldCup2022_MVC.ViewModels
         [Display(Name = "Position in group")]
         public string placeInGroup { get; set; }
         public int placeInGlobalRanking { get; set; }
-
     }
 }

@@ -26,6 +26,7 @@ namespace WorldCup2022_MVC.Controllers
             var id = generateID();
             MatchVM[] result = new MatchVM[49];
             var listOfPendingMatches = _groupstageservice.GetAllMatches();
+            var teams = _teamservice.GetAllEntries();
             GroupStageVM[] arrayOfPendingMatches = new GroupStageVM[49];
             int indexToCopyListToArray = 0;
             foreach (var item in listOfPendingMatches)
@@ -35,11 +36,11 @@ namespace WorldCup2022_MVC.Controllers
             }
             for (int i = 0; i < 48; i++)
             {
-                result[i] = SimulateMatchForGroupPhase(i, arrayOfPendingMatches);
+                result[i] = SimulateMatchForGroupPhase(arrayOfPendingMatches[i], teams);
             }
             var alldata = new TeamsMatchesVM
             {
-                listOfTeams = _teamservice.GetAllEntries(),
+                listOfTeams = teams,
                 listOfMatches = listOfPendingMatches,
                 arrayOfResult = result
             };
@@ -56,16 +57,34 @@ namespace WorldCup2022_MVC.Controllers
             ViewBag.id = id;
             return View(matches);
         }
-        private MatchVM SimulateMatchForGroupPhase(int i, GroupStageVM[] array_gs)
+        private MatchVM SimulateMatchForGroupPhase(GroupStageVM groupStage, List<TeamVM> team)
         {
+            TeamVM home_team = new TeamVM();
+            TeamVM away_team = new TeamVM();
+            foreach (var item in team)
+            {
+                if (item.placeInGroup == groupStage.home)
+                {
+                    home_team = item;
+                }
+            }
+            foreach (var item in team)
+            {
+                if (item.placeInGroup == groupStage.away)
+                {
+                    away_team = item;
+                }
+            }
             Random random = new Random();
-            int hOppor = random.Next(0, 7);
-            int aOppor = random.Next(0, 7);
-            float hEff = (float)(random.Next(0, 100) * 0.01);
-            float aEff = (float)(random.Next(0, 100) * 0.01);
-            int homeGoals = (int)Math.Floor(hOppor * hEff);
-            int awayGoals = (int)Math.Floor(aOppor * aEff);
+            int totalStrength = home_team.placeInGlobalRanking + away_team.placeInGlobalRanking;
+            float homeStrength = (float)away_team.placeInGlobalRanking/ totalStrength;
+            float awayStrength = (float)home_team.placeInGlobalRanking/ totalStrength;
+            float homeOpportunities = random.Next(0, 7);
+            float awayOpportunities = random.Next(0, 7);
+            int homeGoals = (int)Math.Floor(homeOpportunities * homeStrength);
+            int awayGoals = (int)Math.Floor(awayOpportunities * awayStrength);
             bool isHomeWinner = false;
+            
             if (homeGoals > awayGoals)
             {
                 isHomeWinner = true;
@@ -76,15 +95,15 @@ namespace WorldCup2022_MVC.Controllers
             }
             var match = new MatchVM()
             {
-                homeOpportunities = hOppor,
-                awayOpportunities = aOppor,
-                homeEfficiency = hEff,
-                awayEfficiency = aEff,
-                homeGoals = (int)Math.Floor(hOppor * hEff),
-                awayGoals = (int)Math.Floor(aOppor * aEff),
+                homeOpportunities = (int)homeOpportunities,
+                awayOpportunities = (int)awayOpportunities,
+                homeEfficiency = homeStrength,
+                awayEfficiency = awayStrength,
+                homeGoals = homeGoals,
+                awayGoals = awayGoals,
                 isHomeWinner = isHomeWinner,
-                homePlaceInGroup = array_gs[i].home,
-                awayPlaceInGroup = array_gs[i].away
+                homePlaceInGroup = home_team.placeInGroup,
+                awayPlaceInGroup = away_team.placeInGroup
             };
             return match;
         }
