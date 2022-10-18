@@ -17,7 +17,7 @@ namespace WorldCup2022_MVC.Respository
             var simulatedKnockoutPhase = GetAllSimulatedKnockoutPhase(Id);
             if (simulatedKnockoutPhase == null)
             {
-                var allmatches = new PromotedTeams()
+                var allmatches = new SimulatedKnockoutPhase()
                 {
                     Id = Id,
                     Json = json,

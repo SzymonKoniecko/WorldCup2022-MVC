@@ -16,7 +16,7 @@ namespace WorldCup2022_MVC.Services
         public string GetAllSimulatedKnockoutPhase(string id)
         {
             var data = _respository.GetAllSimulatedKnockoutPhase(id);
-            string json = "null";
+            string json = "";
             if (data != null)
             {
                 json = data.Json;

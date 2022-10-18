@@ -24,8 +24,8 @@ namespace WorldCup2022_MVC.Controllers
         }
         public ActionResult KnockoutStageById(string? id)
         {
-            var alreadySimulatedKnockoutPhase = _simulatedKnockoutPhaseService.GetAllSimulatedKnockoutPhase(id);
-            if (alreadySimulatedKnockoutPhase != null)
+            string alreadySimulatedKnockoutPhase = _simulatedKnockoutPhaseService.GetAllSimulatedKnockoutPhase(id);
+            if (!String.IsNullOrEmpty(alreadySimulatedKnockoutPhase))
             {
                 SimulatedKnockoutPhaseToJsonVM simulated = JsonConvert.DeserializeObject<SimulatedKnockoutPhaseToJsonVM>(alreadySimulatedKnockoutPhase);
                 WinnerVM[] winnersKSVM = new WinnerVM[16];
@@ -35,6 +35,7 @@ namespace WorldCup2022_MVC.Controllers
                 ViewBag.thirdplace = simulated.thirdPlaceTeamsVMs;
                 ViewBag.final = simulated.finalTeamsVMs;
                 ViewBag.teams = simulated.teamVMs;
+                ViewBag.matches = simulated.matchesKSVM;
                 return View(simulated.matchesKSVM);
             }
             else
@@ -176,6 +177,7 @@ namespace WorldCup2022_MVC.Controllers
                 };
                 var simulatedPhaseJson = JsonConvert.SerializeObject(simulatedPhaseToJson);
                 _simulatedKnockoutPhaseService.SaveSimulatedKnockoutPhase(id, simulatedPhaseJson);
+                ViewBag.matches = matchesKSVM;
                 return View(matchesKSVM);
             }
         }
