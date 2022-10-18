@@ -1,7 +1,19 @@
-﻿@{
-    int teamid = 0;
+﻿@using WorldCup2022_MVC.ViewModels
+@model List<TeamVM>
+@{
+    int teamid = 12;
 }
+<h2>@ViewBag.team.name needs @ViewBag.index simulations to won a cup!</h2>
 
 
-@ViewBag.id_for_simulation
-@ViewBag.index
+
+
+
+
+
+
+<h1>Go to group stage for this won simulation:</h1>
+    <form action="/PlayGroup/PlayGroupById?id=@ViewBag.id_for_simulation">
+        <input type="text" id="@ViewBag.id_for_simulation" name="@ViewBag.id_for_simulation" value="@ViewBag.id_for_simulation"><br><br>
+        <input type="submit" value="Submit">
+    </form>

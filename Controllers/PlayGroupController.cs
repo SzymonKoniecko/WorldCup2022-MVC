@@ -21,7 +21,7 @@ namespace WorldCup2022_MVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice, [FromServices] IMatchesService matchesService)
+        public ActionResult PlayGroup()
         {
             var id = generateID();
             MatchVM[] result = new MatchVM[49];
@@ -47,12 +47,13 @@ namespace WorldCup2022_MVC.Controllers
             var json = JsonConvert.SerializeObject(alldata);
             _matchesService.SaveAllMatches(id, json);
             ViewBag.id = id;
+            ViewBag.alldata = alldata;
             return View(alldata);
         }
         [HttpGet]
-        public ActionResult PlayGroupById(string? id, [FromServices] IMatchesService matchesService)
+        public ActionResult PlayGroupById(string? id)
         {
-            string data = matchesService.GetAllMatches(id);
+            string data = _matchesService.GetAllMatches(id);
             TeamsMatchesVM matches = JsonConvert.DeserializeObject<TeamsMatchesVM>(data);
             ViewBag.id = id;
             return View(matches);

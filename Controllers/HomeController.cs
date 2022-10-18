@@ -20,7 +20,7 @@ namespace WorldCup2022_MVC.Controllers
             _TeamRespository = teamRespository;
         }
 
-        public IActionResult Index([FromServices]ITeamService TeamService)
+        public IActionResult Index()
         {
             ListOfTeams = _TeamService.GetAllEntries();
             ListOfTeams.Reverse();

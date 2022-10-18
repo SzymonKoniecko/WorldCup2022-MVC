@@ -21,19 +21,19 @@ namespace WorldCup2022_MVC.Controllers
             _promotedTeamsService = promotedTeamsService;
         }
         [HttpGet]
-        public ActionResult TableById(string id, [FromServices] ITeamService teamService, [FromServices] IMatchesService matchesService, [FromServices] IPromotedTeamsService promotedTeamsService)
+        public ActionResult TableById(string id)
         {
-            string data = matchesService.GetAllMatches(id);
+            string data = _matchesService.GetAllMatches(id);
             GroupStageVM group = new GroupStageVM();
             ResultsGroupStageVM resultsGroupStage = new ResultsGroupStageVM();
-            resultsGroupStage.ListTeamVM = teamService.GetAllEntries();
+            resultsGroupStage.ListTeamVM = _teamservice.GetAllEntries();
             resultsGroupStage.TeamsMatchesVM = JsonConvert.DeserializeObject<TeamsMatchesVM>(data);
             var results = DataForTable(resultsGroupStage);
             ViewBag.id = id;
 
             var sorted_results = SortResults(results);
             var jsonOfWinners = TeamsToKnockoutStage(sorted_results);
-            promotedTeamsService.SavePromotedTeams(id, jsonOfWinners);
+            _promotedTeamsService.SavePromotedTeams(id, jsonOfWinners);
             return View(sorted_results);
         }
         private Dictionary<TeamVM, StatisticsVM> DataForTable(ResultsGroupStageVM rgs)

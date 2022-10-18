@@ -23,6 +23,7 @@ namespace WorldCup2022_MVC.Controllers
         public IActionResult ChooseYourChampion()
         {
             var teams = _teamservice.GetAllEntries();
+            teams.Reverse();
             return View(teams);
         }
         public IActionResult Simulator(int? teamId)
@@ -36,23 +37,26 @@ namespace WorldCup2022_MVC.Controllers
                     teamVM = item;
                 }
             }
-            bool founded_simulation = false;
+            bool founded_simulation = true;
             string id_for_simulation = "";
             int index = 0;
             while (founded_simulation)
             {
                 PlayGroupController playGroupController = new PlayGroupController(_teamservice, _groupstageservice, _matchesService);
-                playGroupController.PlayGroup(_teamservice, _groupstageservice, _matchesService);
-                playGroupController.ViewBag.id = id_for_simulation;
+                playGroupController.PlayGroup();
+                id_for_simulation = playGroupController.ViewBag.id;
+                var alldata = playGroupController.ViewBag.alldata;
                 TableController tableController = new TableController(_teamservice, _groupstageservice, _matchesService, _promotedteamsservice);
-                tableController.TableById(id_for_simulation, _teamservice, _matchesService, _promotedteamsservice);
+                tableController.TableById(id_for_simulation);
                 KnockoutStageController knockoutStageController = new KnockoutStageController(_teamservice, _groupstageservice, _matchesService, _knockoutStageservice, _promotedteamsservice);
                 knockoutStageController.KnockoutStageById(id_for_simulation);
+                var finalMatches = knockoutStageController.ViewBag.final;
                 for (int i = 0; i < 2; i++)
                 {
-                    if (knockoutStageController.ViewBag.final[i].teamId == teamVM.teamId)
+                    if (finalMatches[i].teamId == teamVM.teamId)
                     {
-                        founded_simulation = true;
+                        founded_simulation = false;
+                        ViewBag.id_for_simulation = id_for_simulation;
                     }
                     else
                     {
@@ -60,9 +64,10 @@ namespace WorldCup2022_MVC.Controllers
                     }
                 }
             }
+            ViewBag.team = teamVM;
             ViewBag.index = index;
-            ViewBag.id_for_simulation = id_for_simulation;
-            return View();
+            teams.Reverse();
+            return View(teams);
         }
     }
 }
