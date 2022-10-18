@@ -12,18 +12,31 @@ namespace WorldCup2022_MVC.Controllers
         private readonly ITeamService _teamservice;
         private readonly IGroupStageService _groupstageservice;
         private readonly IMatchesService _matchesService;
+        private readonly IPromotedTeamsService _promotedTeamsService;
         private List<MatchVM> matches = new List<MatchVM>();
-        public PlayGroupController(ITeamService teamservice, IGroupStageService groupstageservice, IMatchesService matchesService)
+        public PlayGroupController(ITeamService teamservice, IGroupStageService groupstageservice, IMatchesService matchesService, IPromotedTeamsService promotedTeamsService)
         {
             _teamservice = teamservice;
             _groupstageservice = groupstageservice;
             _matchesService = matchesService;
+            _promotedTeamsService = promotedTeamsService;
         }
 
         [HttpGet]
-        public ActionResult PlayGroup([FromServices] ITeamService teamservice, [FromServices] IGroupStageService stageservice, [FromServices] IMatchesService matchesService)
+        public ActionResult PlayGroup()
         {
             var id = generateID();
+            bool iteration = true;
+            while(iteration)
+            {
+                var data = _matchesService.GetAllMatches(id);
+                var data2 = _promotedTeamsService.GetAllPromotedTeams(id);
+                if (data == "null" && data2 == "null")
+                {
+                    iteration = false;
+                }
+                id = generateID();
+            }
             MatchVM[] result = new MatchVM[49];
             var listOfPendingMatches = _groupstageservice.GetAllMatches();
             var teams = _teamservice.GetAllEntries();
@@ -47,12 +60,13 @@ namespace WorldCup2022_MVC.Controllers
             var json = JsonConvert.SerializeObject(alldata);
             _matchesService.SaveAllMatches(id, json);
             ViewBag.id = id;
+            ViewBag.alldata = alldata;
             return View(alldata);
         }
         [HttpGet]
-        public ActionResult PlayGroupById(string? id, [FromServices] IMatchesService matchesService)
+        public ActionResult PlayGroupById(string? id)
         {
-            string data = matchesService.GetAllMatches(id);
+            string data = _matchesService.GetAllMatches(id);
             TeamsMatchesVM matches = JsonConvert.DeserializeObject<TeamsMatchesVM>(data);
             ViewBag.id = id;
             return View(matches);
