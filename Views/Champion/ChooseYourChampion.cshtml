@@ -1,0 +1,14 @@
+﻿@using WorldCup2022_MVC.ViewModels
+@model List<TeamVM>
+@{
+    int teamid = 0;
+}
+<form action="/Champion/Simulator?id=@teamid">
+        <label for="teamid">Simulator:</label>
+        <input type="text" id="id" name="teamid" value="@teamid"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    @foreach(var item in @Model)    {
+        <h3>@item.name -> @item.teamId</h3>
+    }
