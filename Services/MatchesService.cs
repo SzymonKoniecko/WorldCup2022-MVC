@@ -20,7 +20,11 @@ namespace WorldCup2022_MVC.Services
         public string GetAllMatches(string id)
         {
             var data = _respository.GetAllMatches(id);
-            string json = data.Json;
+            string json = "null";
+            if (data != null)
+            {
+                json = data.Json;
+            }
             return json;
         }
     }

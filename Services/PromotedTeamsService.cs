@@ -16,7 +16,11 @@ namespace WorldCup2022_MVC.Services
         public string GetAllPromotedTeams(string id)
         {
             var data = _respository.GetAllPromotedTeams(id);
-            string json = data.Json;
+            string json = "null";
+            if (data != null)
+            {
+                json = data.Json;
+            }
             return json;
         }
     }

@@ -25,6 +25,8 @@ builder.Services.AddDbContext<KnockoutStageContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<PromotedTeamsContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<SimulatedKnockoutPhaseContext>(options =>
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddTransient<ITeamRespository, TeamRespository>();
 builder.Services.AddTransient<ITeamService, TeamService>();

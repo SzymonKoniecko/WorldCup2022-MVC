@@ -42,7 +42,7 @@ namespace WorldCup2022_MVC.Controllers
             int index = 0;
             while (founded_simulation)
             {
-                PlayGroupController playGroupController = new PlayGroupController(_teamservice, _groupstageservice, _matchesService);
+                PlayGroupController playGroupController = new PlayGroupController(_teamservice, _groupstageservice, _matchesService, _promotedteamsservice);
                 playGroupController.PlayGroup();
                 id_for_simulation = playGroupController.ViewBag.id;
                 var alldata = playGroupController.ViewBag.alldata;
