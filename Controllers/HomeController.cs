@@ -27,10 +27,6 @@ namespace WorldCup2022_MVC.Controllers
             return View(ListOfTeams);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
         public IActionResult RedirectToPlay()
         {
             //return RedirectToAction("PlayGroup.cshtml", "PlayGroup");
