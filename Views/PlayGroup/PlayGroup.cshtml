@@ -12,9 +12,9 @@
 </home>
 <h1 align= "center">@ViewData["Title"]</h1>
 <form action="/Table/TableById?id=@id">
-        <label for="id">Table:</label>
+        <label for="id"></label>
         <input type="text" id="id" name="id" value="@id"><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Go to table view">
     </form>
     @foreach(var match in @Model.listOfMatches){
         
@@ -55,7 +55,7 @@
             {
                 @if (@team.placeInGroup == @match.home)
                 {
-                    @team.name 
+                    <img src="@team.picture" alt="@team.picture" /> @team.name 
                 }
             }
              @Model.arrayOfResult[i].homeGoals : @Model.arrayOfResult[i].awayGoals  
@@ -63,7 +63,7 @@
             {
             @if (@team.placeInGroup == @match.away)
             {
-                 @team.name
+                 <img src="@team.picture" alt="@team.picture" /> @team.name 
             }
         }
             @{

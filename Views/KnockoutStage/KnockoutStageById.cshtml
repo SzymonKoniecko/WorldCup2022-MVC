@@ -9,7 +9,7 @@
     int indexaway = 0;
 }
 <home>
-    <link rel="stylesheet" href="~/css/knockoutStageBy.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/knockoutStageById.css" asp-append-version="true" />
 </home>
 <h1 align= "center">@ViewData["Title"]</h1>
 <h1> Round of 1/16 </h1>
@@ -29,11 +29,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -54,11 +54,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -79,11 +79,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -104,11 +104,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -129,11 +129,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -154,11 +154,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -179,11 +179,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -204,11 +204,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.teams[indexaway].name</h2>
+            <h2><img src="@ViewBag.teams[indexhome].picture" alt="@ViewBag.teams[indexhome].picture"/>@ViewBag.teams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.teams[indexaway].picture" alt="@ViewBag.teams[indexaway].picture"/>@ViewBag.teams[indexaway].name</h2>
         }
     @{
         i++;
@@ -231,11 +231,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name</h2>
         }
         @{
         i++;
@@ -256,11 +256,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name</h2>
         }
         @{
         i++;
@@ -281,11 +281,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name</h2>
         }
         @{
         i++;
@@ -306,11 +306,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.quarterteams[indexaway].name</h2>
+            <h2><img src="@ViewBag.quarterteams[indexhome].picture" alt="@ViewBag.quarterteams[indexhome].picture"/>@ViewBag.quarterteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.quarterteams[indexaway].picture" alt="@ViewBag.quarterteams[indexaway].picture"/>@ViewBag.quarterteams[indexaway].name</h2>
         }
         @{
         i++;
@@ -333,11 +333,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.semifinalteams[indexhome].picture" alt="@ViewBag.semifinalteams[indexhome].picture"/>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.semifinalteams[indexaway].picture" alt="@ViewBag.semifinalteams[indexaway].picture"/>@ViewBag.semifinalteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name</h2>
+            <h2><img src="@ViewBag.semifinalteams[indexhome].picture" alt="@ViewBag.semifinalteams[indexhome].picture"/>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.semifinalteams[indexaway].picture" alt="@ViewBag.semifinalteams[indexaway].picture"/>@ViewBag.semifinalteams[indexaway].name</h2>
         }
         @{
         i++;
@@ -358,11 +358,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.semifinalteams[indexhome].picture" alt="@ViewBag.semifinalteams[indexhome].picture"/>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.semifinalteams[indexaway].picture" alt="@ViewBag.semifinalteams[indexaway].picture"/>@ViewBag.semifinalteams[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.semifinalteams[indexaway].name</h2>
+            <h2><img src="@ViewBag.semifinalteams[indexhome].picture" alt="@ViewBag.semifinalteams[indexhome].picture"/>@ViewBag.semifinalteams[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.semifinalteams[indexaway].picture" alt="@ViewBag.semifinalteams[indexaway].picture"/>@ViewBag.semifinalteams[indexaway].name</h2>
         }
         @{
         i++;
@@ -384,11 +384,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.thirdplace[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.thirdplace[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.thirdplace[indexhome].picture" alt="@ViewBag.thirdplace[indexhome].picture"/>@ViewBag.thirdplace[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.thirdplace[indexaway].picture" alt="@ViewBag.thirdplace[indexaway].picture"/>@ViewBag.thirdplace[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.thirdplace[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.thirdplace[indexaway].name</h2>
+            <h2><img src="@ViewBag.thirdplace[indexhome].picture" alt="@ViewBag.thirdplace[indexhome].picture"/>@ViewBag.thirdplace[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.thirdplace[indexaway].picture" alt="@ViewBag.thirdplace[indexaway].picture"/>@ViewBag.thirdplace[indexaway].name</h2>
         }
         @{
         i++;
@@ -410,11 +410,11 @@
         }
         @if (@Model[i].homeGoals == @Model[i].awayGoals)
         {
-            <h2>@ViewBag.final[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.final[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
+            <h2><img src="@ViewBag.final[indexhome].picture" alt="@ViewBag.final[indexhome].picture"/>@ViewBag.final[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.final[indexaway].picture" alt="@ViewBag.final[indexaway].picture"/>@ViewBag.final[indexaway].name [@Model[i].homeGoals_draw : @Model[i].awayGoals_draw]</h2>
         }
         @if (@Model[i].homeGoals != @Model[i].awayGoals)
         {
-            <h2>@ViewBag.final[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals @ViewBag.final[indexaway].name</h2>
+            <h2><img src="@ViewBag.final[indexhome].picture" alt="@ViewBag.final[indexhome].picture"/>@ViewBag.final[indexhome].name @Model[i].homeGoals : @Model[i].awayGoals <img src="@ViewBag.final[indexaway].picture" alt="@ViewBag.final[indexaway].picture"/>@ViewBag.final[indexaway].name</h2>
         }
         @{
         i++;

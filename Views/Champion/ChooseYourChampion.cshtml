@@ -4,11 +4,11 @@
     int teamid = 12;
 }
 <form action="/Champion/Simulator?id=@teamid">
-        <label for="teamid">Simulator:</label>
+        <label for="teamid">Enter chosen teamId:</label>
         <input type="text" id="id" name="teamid" value="@teamid"><br><br>
         <input type="submit" value="Submit">
     </form>
 
     @foreach(var item in @Model)    {
-        <h3>@item.name -> @item.teamId</h3>
+        <h3><img src="@item.picture" alt="@item.picture" /> @item.name -> @item.teamId</h3>
     }
