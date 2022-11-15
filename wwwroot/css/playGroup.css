@@ -1,1 +1,14 @@
-﻿
+﻿img {
+    height: 50px;
+    width: 75px;
+}
+
+table {
+    align: left;
+}
+input[type=text] {
+    visibility: hidden;
+}
+h3{
+    color: black;
+}

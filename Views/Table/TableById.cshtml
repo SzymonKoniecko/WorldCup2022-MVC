@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/css/table.css" asp-append-version="true" />
 </home>
 <form action="/KnockoutStage/KnockoutStageById?id=@id">
-        <label for="id">KnockoutStage</label>
+        <label for="id"></label>
         <input type="text" id="id" name="id" value="@id"><br><br>
         <input type="submit" value="KnockoutStage">
     </form>
@@ -39,7 +39,7 @@
                             i++;
                             j++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -76,7 +76,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -113,7 +113,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -150,7 +150,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -187,7 +187,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -224,7 +224,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -261,7 +261,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>
@@ -298,7 +298,7 @@
                         @{
                             i++;
                         }
-                        <th>@item.Key.name</th>
+                        <th><img src="@item.Key.picture" alt="@item.Key.picture" />  @item.Key.name </th>
                         <th>@item.Value.points</th>
                         <th>@item.Value.goal_balance</th>
                         <th>@item.Value.goals_scored</th>

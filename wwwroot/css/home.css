@@ -17,8 +17,16 @@ body {
   margin-bottom: 60px;
 }
 h3{
-    color: blue;
+    color: brown;
 }
 a{
     color: black;
+}
+img {
+    height: 50px;
+    width: 75px;
+}
+
+table {
+    align: left;
 }
