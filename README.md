@@ -1,5 +1,5 @@
 # WorldCup2022-MVC
-1. Po sklonowaniu repo trzeba się upewnić czy w Visual Studio 2022 ma się nastęujące pakiety nuget:
+1. Po sklonowaniu repo trzeba się upewnić czy w Visual Studio 2022 ma się następujące pakiety nuget:
    -Microsoft.EntityFrameworkCore
    -Microsoft.EntityFrameworkCore.Design
    -Microsoft.EntityFrameworkCore.SqlServer
@@ -20,7 +20,7 @@ update-database -context PromotedTeamsContext
 update-database -context SimulatedKnockoutPhaseContext
 update-database -context TeamContext
 
-5. W folderze "DbScripts" są zamieszczone z danymi wymaganymi do poprawnego działania aplikacji. Należy uruchomić każdy skrypt. (Można użyć MSSQL)
+5. W folderze "DbScripts" są zamieszczone pliki .sql danymi wymaganymi do poprawnego działania aplikacji. Należy uruchomić każdy skrypt. (Można użyć MSSQL)
 
    
 6. KONIEC :)
