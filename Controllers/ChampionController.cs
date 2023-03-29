@@ -30,6 +30,8 @@ namespace WorldCup2022_MVC.Controllers
         }
         public IActionResult Simulator(int? teamId)
         {
+            SimulationTimeVM simulationTimeVM = new();
+            simulationTimeVM.StartTimeOfSimulation = DateTime.Now;
             var teams = _teamservice.GetAllEntries();
             TeamVM teamVM = new TeamVM();
             foreach (var item in teams)
@@ -113,6 +115,8 @@ namespace WorldCup2022_MVC.Controllers
                 }
                 index++;
             }
+            simulationTimeVM.EndTimeOfSimulation = DateTime.Now;
+            ViewBag.SimulationTime = simulationTimeVM;
             ViewBag.team = teamVM;
             ViewBag.index = index;
             teams.Reverse();

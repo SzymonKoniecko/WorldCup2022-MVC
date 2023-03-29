@@ -27,4 +27,6 @@
     <Folder Include="WorldCup2022-MVC.Tests\" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties configapi_1json__JsonSchema="https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema" /></VisualStudio></ProjectExtensions>
+
 </Project>
