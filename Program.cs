@@ -1,12 +1,8 @@
-using WorldCup2022_MVC.Contexts;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using WorldCup2022_MVC.Respository;
-using WorldCup2022_MVC.Interfaces;
-using WorldCup2022_MVC.Services;
 using WorldCup2022_MVC.Contexts;
-using WorldCup2022_MVC.Models;
-using WorldCup2022_MVC.ViewModels;
+using WorldCup2022_MVC.Interfaces;
+using WorldCup2022_MVC.Respository;
+using WorldCup2022_MVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,8 +37,78 @@ builder.Services.AddTransient<IPromotedTeamsService, PromotedTeamsService>();
 builder.Services.AddTransient<ISimulatedKnockoutPhaseRespository, SimulatedKnockoutPhaseRespository>();
 builder.Services.AddTransient<ISimulatedKnockoutPhaseService, SimulatedKnockoutPhaseService>();
 builder.Services.AddControllersWithViews();
-var app = builder.Build();
 
+
+
+var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var _context = services.GetRequiredService<GroupContext>();
+    if (_context.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context.Database.Migrate();
+        }
+    }
+    var _context1 = services.GetRequiredService<GroupStageContext>();
+    if (_context1.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context1.Database.Migrate();
+        }
+    }
+    var _context2 = services.GetRequiredService<KnockoutStageContext>();
+    if (_context.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context2.Database.Migrate();
+        }
+    }
+    var _context3 = services.GetRequiredService<MatchesContext>();
+    if (_context.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context3.Database.Migrate();
+        }
+    }
+    var _context4 = services.GetRequiredService<PromotedTeamsContext>();
+    if (_context.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context4.Database.Migrate();
+        }
+    }
+    var _context5 = services.GetRequiredService<SimulatedKnockoutPhaseContext>();
+    if (_context.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context5.Database.Migrate();
+        }
+    }
+    var _context6 = services.GetRequiredService<TeamContext>();
+    if (_context.Database.CanConnect())
+    {
+        var pendingMigrations = _context.Database.GetPendingMigrations();
+        if (pendingMigrations != null && pendingMigrations.Any())
+        {
+            _context6.Database.Migrate();
+        }
+    }
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
